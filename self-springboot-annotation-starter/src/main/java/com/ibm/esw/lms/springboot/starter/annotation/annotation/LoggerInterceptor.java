@@ -22,7 +22,7 @@ public class LoggerInterceptor extends HandlerInterceptorAdapter {
         if (loggerAnnotation != null) {
             long startTime = System.currentTimeMillis();
             request.setAttribute("start_time", startTime);
-            log.info("The method {} start execute at {}", method.getName(), startTime);
+            log.info("The method {} is started at {}", method.getName(), startTime);
         }
         return true;
     }
@@ -37,7 +37,7 @@ public class LoggerInterceptor extends HandlerInterceptorAdapter {
             long endTime = System.currentTimeMillis();
             long startTime = (Long) request.getAttribute("start_time");
             long periodTime = endTime - startTime;
-            log.info("The method {} was finished at {}", method.getName(), endTime);
+            log.info("The method {} is finished at {}", method.getName(), endTime);
             log.info("The method {} took {} ms to execution", method.getName(), periodTime);
         }
     }
