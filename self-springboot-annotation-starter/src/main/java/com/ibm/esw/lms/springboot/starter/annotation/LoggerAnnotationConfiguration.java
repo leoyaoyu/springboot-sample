@@ -1,6 +1,7 @@
 package com.ibm.esw.lms.springboot.starter.annotation;
 
 import com.ibm.esw.lms.springboot.starter.annotation.annotation.LoggerInterceptor;
+import com.ibm.esw.lms.springboot.starter.annotation.annotation.MyControllerAdvice;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
@@ -25,5 +26,10 @@ public class LoggerAnnotationConfiguration implements WebMvcConfigurer {
                 .addPathPatterns("/**")
                 .excludePathPatterns("/error")
                 .excludePathPatterns("/static/*");
+    }
+
+    @Bean
+    public MyControllerAdvice restInterceptor() {
+        return new MyControllerAdvice();
     }
 }

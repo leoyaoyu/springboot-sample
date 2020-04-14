@@ -7,7 +7,10 @@ import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.PrintWriter;
 import java.lang.reflect.Method;
+import java.util.HashMap;
+import java.util.Map;
 
 @Slf4j
 public class LoggerInterceptor extends HandlerInterceptorAdapter {
@@ -41,4 +44,21 @@ public class LoggerInterceptor extends HandlerInterceptorAdapter {
             log.info("The method {} took {} ms to execution", method.getName(), periodTime);
         }
     }
+
+    @Override
+    public void afterCompletion(HttpServletRequest request, HttpServletResponse response,
+                                Object handler, Exception ex) throws Exception {
+        if(ex != null) {
+            log.info("ex message : {}",ex.getMessage());
+            response.setStatus(503);
+            PrintWriter output = response.getWriter();
+            Map<String, String> result = new HashMap<>();
+            HandlerMethod handlerMethod = (HandlerMethod) handler;
+            Method method = handlerMethod.getMethod();
+            String message = "Exception happened in method "+ method.getName();
+            log.info(message);
+            output.write(message);
+        }
+    }
 }
+
