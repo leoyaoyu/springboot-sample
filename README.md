@@ -13,5 +13,8 @@ a sample to add parameters in yml configuration file for springboot projects
 #### self-springboot-annotation-starter
 a sample to add an annotation for springboot web projects
 
-### self-springboot-starter-user
+#### self-springboot-starter-user
 a sample how to use the two starters: self-springboot-starter & self-springboot-annotation-starter
+
+#### self-springboot-common-lib
+BaseResponse and common exception handler
