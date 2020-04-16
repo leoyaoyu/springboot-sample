@@ -1,6 +1,9 @@
 dependencies {
+    compile project(':self-springboot-common-lib')
     compile project(':self-springboot-starter')
     compile project(':self-springboot-annotation-starter')
     compile('org.springframework.boot:spring-boot-starter-web')
     testCompile('org.springframework.boot:spring-boot-starter-test')
+    compile('io.springfox:springfox-swagger2')
+    compile('io.springfox:springfox-swagger-ui')
 }

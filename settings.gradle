@@ -2,4 +2,5 @@ rootProject.name = 'springboot-sample'
 include 'self-springboot-starter'
 include 'self-springboot-starter-user'
 include 'self-springboot-annotation-starter'
+include 'self-springboot-common-lib'
 
