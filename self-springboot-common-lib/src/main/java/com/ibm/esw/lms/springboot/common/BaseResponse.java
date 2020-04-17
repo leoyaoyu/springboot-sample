@@ -13,9 +13,9 @@ public class BaseResponse {
     private String message;
 
     @Builder.Default
-    private ResultCode code = ResultCode.SUCCESS;
+    private Integer code = ResultCode.SUCCESS.code;
 
     public boolean isSuccess() {
-        return code == ResultCode.SUCCESS;
+        return code == ResultCode.SUCCESS.code;
     }
 }
