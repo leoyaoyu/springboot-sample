@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: self-service-user
+  namespace: ${namespace}
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: self-service-user
+    spec:
+      containers:
+        - name: self-service-user
+          image: ${image}
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: ${spring_profile}
+            - name: TRUSTED_CA_CERTIFICATE_PATH
+              value: ssl-certficate
+          volumeMounts:
+            - name: self-service-user-db-secret
+              mountPath: /etc/volumes/secrets/self-service-user-db-secret
+              readOnly: true
+      volumes:
+        - name: self-service-user-db-secret
+          secret:
+            secretName: self-service-user-db
+  selector:
+    matchLabels:
+      app: self-service-user
