@@ -1,17 +1,17 @@
 package com.ibm.esw.lms.sprintboot.starter.self.domain.entity;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonValue;
-import lombok.Builder;
 import lombok.Data;
 
-import javax.validation.constraints.NotNull;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-@Builder
+@Entity
+@Table(name = "T_USER")
 @Data
 public class User {
 
+    @Id
     private String id;
 
     private String name;

@@ -43,7 +43,12 @@ public class StarterUserController {
     })
     @GetMapping("/user/{user_id}")
     public GeneralUserResponse getUser(@PathVariable("user_id") String userId) {
-        User user = User.builder().id(userId).name("testUser").age(100).comment("test user comment").build();
+        User user = new User();
+        user.setId(userId);
+        user.setName("testUser");
+        user.setAge(100);
+        user.setComment("test user comment");
+
         GeneralUserResponse response = new GeneralUserResponse(user);
         return response;
     }

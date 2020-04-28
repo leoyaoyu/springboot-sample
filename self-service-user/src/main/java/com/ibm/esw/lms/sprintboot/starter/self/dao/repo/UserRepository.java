@@ -12,6 +12,8 @@ public interface UserRepository extends CrudRepository<User,String> {
 
     Optional<User> findByNameAndAge(String name, Integer age);
 
+    Optional<User> findByName(String name);
+
     @Transactional
     void deleteByName(String name);
 

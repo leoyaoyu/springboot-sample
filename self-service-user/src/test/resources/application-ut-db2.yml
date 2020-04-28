@@ -1,0 +1,38 @@
+# ****** H2 In Memory Database Connection Info *******
+lms-solution-db:
+  username: SPCDB2T
+
+spring:
+  application:
+    name: account-service
+  datasource: # use in-memory db for unit testing
+    solution-db:
+      driver-class-name: org.h2.Driver
+      jdbc-url: jdbc:h2:mem:SPCDB2T;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE;MODE=DB2
+      username: sa
+      password:
+    initialization-mode: always
+    continue-on-error: false
+    platform: h2
+    schema: classpath:/db/init.sql
+  h2:
+    console:
+      enabled: true
+  jpa:
+    hibernate:
+      dialect: org.hibernate.dialect.DB2Dialect
+      ddl-auto: validate
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+  output:
+    ansi:
+      enabled: always
+
+ram-guards:
+  resource-server:
+    client-id: danube-zuul
+    client-secret: LwitblTK4KgOInkWh/0bpsFjdxdM8sguAVtA0eLG0fI=
+
+test-token: eyJ6aXAiOiJERUYiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2IiwiYWxnIjoiZGlyIn0..jIj1aSbukEA8LpE2jNb02g.TkNlrCfiKPjG1eb_UKUotLaGVLZxYg3LWguDtTKjZtWZeHiOVImCCpryCmIXdQ4Na7EAdG0n7ZwDevopnK6toQPi3HkweElJVxp8dx3AoKZDdjvtGbztI9cPlRSK5_D_YuxjqYRcKCSIt3T84VVIrY8PLdqMlbyPHPorDV-D2qwKXcZKJPE6XboD-LYeWpCNpMTs0bBCCoXFtEa7qokK6oeM-fj0XbZPuN4XODVDNxhbXSSLhDp7guBhv7DuBYfGk_cVXG-oaBeEKssEA5Pp9Pn54mcv5XrcD3EzYdUiB1V8AVSzG3fHbHtxOmmfriKf1hvEP6ImB0Ii7RaWK49VBtqb0c3lcpD4WEkD5ArH5pKSN_tNU81Mzkvc4yLojw2VeTAX86dN4nvEdEkf4AKHT8T-xT0NxyhTKuNsl5YGTF3_SC2Y1BNnYZ3BGCEwd-qnTkgrgBQqQYMWCoKt4TldIpu90FcTldhswbsuBoc7ygnm5ovslJ8ueFG-tSKlXtIylrbKbVoQhZsL8l9N5oABIeRtFzBfFmFqBXe9DFSsMgRK3LHcAv2YU0t3rRczW1QTSo6cYrBqc_90XG4yRJZCu1NNgS9wCvwT-B1w-kR-ME8W5I1qN0_QD_eMSarGQUcrGS_EHf8ROZPz1Ap68QRiY0Bvy7LoEnv-a2vAv4f-2Bc.9q5UAb5cdEtIdK9kr9WR_Q
