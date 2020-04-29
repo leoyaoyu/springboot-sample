@@ -1,10 +1,6 @@
-
-drop schema if exists `MYSCHEMA`;
-create schema `MYSCHEMA`;
-use `MYSCHEMA`;
-DROP TABLE IF EXISTS `T_USER`;
-
-CREATE TABLE `T_USER`
+create schema IF NOT EXISTS `MYSCHEMA`;
+USE `MYSCHEMA`;
+CREATE TABLE IF NOT EXISTS `T_USER`
 (
     `id` varchar(64),
     `name` varchar(255) NOT NULL,
