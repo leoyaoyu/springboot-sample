@@ -18,7 +18,6 @@ import java.util.Optional;
 
 import static org.hamcrest.Matchers.hasProperty;
 import static org.junit.Assert.*;
-import static org.mockito.ArgumentMatchers.booleanThat;
 import static org.mockito.Mockito.when;
 
 @Slf4j
